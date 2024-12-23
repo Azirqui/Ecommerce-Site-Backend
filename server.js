@@ -10,7 +10,13 @@ const productsRoute = require('./routes/products');
 
 // Middleware
 app.use(express.json());
-app.use(cors());
+app.use(cors(
+    {
+        origin: ['https://peach-tree-frontend-fw2xxocxx-ch-noman-ahmads-projects.vercel.app/'],
+        methods: ['GET', 'POST', 'PUT', 'DELETE'],
+        credentials: true
+    }
+));
 
 // Use the products route with the /api prefix
 app.use('/api/products', productsRoute);
